@@ -96,6 +96,11 @@ public class BlackjackRunner
 								addOneCard();
 								youWonOrLost();
 							}
+						else if (yesOrNo == 2)
+						{
+							System.out.println("Alright thanks for playing! See you nest time!");
+							System.exit(0);
+						}
 					}
 					public static void print(String s)
 					{
@@ -107,7 +112,6 @@ public class BlackjackRunner
 										Thread.sleep(50);
 									} catch (InterruptedException e)
 									{
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 							}
@@ -161,7 +165,7 @@ public class BlackjackRunner
 									deck.add(new Card("four", "hearts", 4));
 									deck.add(new Card("four", "clubs", 4));
 									deck.add(new Card("four", "spades", 4));
-									deck.add(new Card("four", "diamonds", 4));
+			 						deck.add(new Card("four", "diamonds", 4));
 									deck.add(new Card("three", "hearts", 3));
 									deck.add(new Card("three", "clubs", 3));
 									deck.add(new Card("three", "spades", 3));
@@ -177,3 +181,4 @@ public class BlackjackRunner
 						
 }
 						
+
