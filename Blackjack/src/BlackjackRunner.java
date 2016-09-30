@@ -5,51 +5,36 @@ import java.util.Scanner;
 
 public class BlackjackRunner
 	{
-		static boolean wantsToPlay = true; 
 		static int firstTotalCards;
 		static ArrayList<Card> deck =new ArrayList <Card>();
 		static int playerHandValue;
 		public static void main(String[] args)
 			{
 				deck();
-				while (wantsToPlay)
 					{
+						intro();
 						dealTwoCards();
 						addOneCard();
 						youWonOrLost();
-//						playAgain();
-						
+						playAgain();
 					}
 				
 				
 			}
-			
 		
-		public static void print(String s)
-			{
-				for(int i = 0; i < s.length(); i++)
+					public static void intro()
 					{
-						System.out.print(s.substring(i, i+1));
-						try
-							{
-								Thread.sleep(50);
-							} catch (InterruptedException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+						print("Hello, and welcome to Blackjack! "
+								+ "\n The object of the game is to get a total of 21 for your card value.  "
+								+ "\n If you go over 21 you loose! "
+								+ "\n You will start out with two cards.");
 					}
-				System.out.println();
-			}
+					
 					public static void dealTwoCards()
 					{
-					print("Hello, and welcome to Blackjack!");
-					System.out.println("The object of the game is to get a total of 21 for your card value.");
-					System.out.println("If you go over 21 you loose!");
-					System.out.println("You will start out with two cards.");
 					playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
-					System.out.println("Your first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
-							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\n for a total of " + playerHandValue);
+					print(" \n Your first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
+							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\n for a total of " +  playerHandValue + ".");
 					deck.remove(0);
 					deck.remove(0);	
 					}
@@ -57,18 +42,18 @@ public class BlackjackRunner
 					
 					public static void addOneCard()
 					{
-					System.out.println("Would you like to draw another card?");
+					print(" Would you like to draw another card? ");
 					Scanner userInput = new Scanner(System.in);
-					System.out.println("1. Yes");
-					System.out.println("2. No");
+					print("\n 1. Yes ");
+					print("\n 2. No ");
 			
 					int yesOrNo = userInput.nextInt();
 					
 					if (yesOrNo == 1)
 						{
-							System.out.println("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit());
+							print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
 							playerHandValue = playerHandValue + deck.get(0).getValue();
-							System.out.println("Your new total is " + playerHandValue);
+							print(" \n Your new total is " + playerHandValue + ". ");
 							deck.remove(0);
 								
 									youWonOrLost();
@@ -78,24 +63,56 @@ public class BlackjackRunner
 							
 					else if (yesOrNo == 2)
 						{
-							System.out.println("Ok");
+							print("Ok! Goodbye!");
+							System.exit(0);
 						}
 					}
 					
-				
-				
 					public static void youWonOrLost()
 						{
 						if (playerHandValue == 21)
 							{
-								System.out.println("Congratulations! You Win");
-								System.exit(0);
+								print(" Congratulations! You Win");
+								playAgain();
 							}
 						else if (playerHandValue > 21)
 							{
-								System.out.println("Im sorry to inform you, but you went over 21 so you lose.");
-								System.exit(0);
+								print(" \n Im sorry to inform you, but you went over 21 so you lose.");
+								playAgain();
 							}
+						}
+					public static void playAgain()
+					{
+						System.out.println(" \n Would you like to play again?");
+						Scanner userInput = new Scanner(System.in);
+						print("\n 1. Yes");
+						print("\n 2. No");
+				
+						int yesOrNo = userInput.nextInt();
+						
+						if (yesOrNo == 1)
+							{
+								dealTwoCards();
+								addOneCard();
+								youWonOrLost();
+							}
+					}
+					public static void print(String s)
+					{
+						for(int i = 0; i < s.length(); i++)
+							{
+								System.out.print(s.substring(i, i+1));
+								try
+									{
+										Thread.sleep(50);
+									} catch (InterruptedException e)
+									{
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+							}
+					
+					
 						}
 					public static void deck()
 						{
