@@ -49,37 +49,37 @@ public class BlackjackRunner
 						print("\n 2. No ");
 						int yesOrNo = userInput.nextInt();
 				
-						if (yesOrNo == 1)
-						{
-							print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
-							playerHandValue = playerHandValue + deck.get(0).getValue();
-							print(" \nYour new total is " + playerHandValue + ". ");
-							deck.remove(0);
+							if (yesOrNo == 1)
+								{
+									print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
+									playerHandValue = playerHandValue + deck.get(0).getValue();
+									print(" \nYour new total is " + playerHandValue + ". ");
+									deck.remove(0);
 									
 									youWonOrLost();
 									addOneCard();
-						}
+								}
 							
-						else if (yesOrNo == 2)
-						{
-							print("I'm sorry to tell  you but you came up just short of 21. \nThat means that you loose.  Would you like to play again?");
-							playAgain();
-							System.exit(0);
-						}
+							else if (yesOrNo == 2)
+								{
+									print("I'm sorry to tell  you but you came up just short of 21. \nThat means that you loose.  Would you like to play again?");
+									playAgain();
+									System.exit(0);
+								}
 					}
 					
 					public static void youWonOrLost()
 						{
-						if (playerHandValue == 21)
-							{
-								print(" Congratulations! You Win");
-								playAgain();
-							}
-						else if (playerHandValue > 21)
-							{
-								print(" \nIm sorry to inform you, but you went over 21 so you lose.");
-								playAgain();
-							}
+							if (playerHandValue == 21)
+								{
+									print(" Congratulations! You Win");
+									playAgain();
+								}
+							else if (playerHandValue > 21)
+								{
+									print(" \nIm sorry to inform you, but you went over 21 so you lose.");
+									playAgain();
+								}
 						}
 					public static void playAgain()
 					{
@@ -178,4 +178,3 @@ public class BlackjackRunner
 						
 }
 						
-
