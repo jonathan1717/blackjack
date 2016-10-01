@@ -18,13 +18,14 @@ public class BlackjackRunner
 						youWonOrLost();
 						playAgain();
 					}
-				
-				
 			}
 		
 					public static void intro()
 					{
-						print("Hello, and welcome to Blackjack! "
+							Scanner userInput = new Scanner(System.in);
+							print("What is your name?");
+							String name = userInput.nextLine();
+							print("Hello " + name + " and welcome to Blackjack! "
 								+ "\n The object of the game is to get a total of 21 for your card value.  "
 								+ "\n If you go over 21 you loose! "
 								+ "\n You will start out with two cards.");
@@ -32,36 +33,34 @@ public class BlackjackRunner
 					
 					public static void dealTwoCards()
 					{
-					playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
-					print(" \n Your first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
+						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
+						print(" \n Your first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
 							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\n for a total of " +  playerHandValue + ".");
-					deck.remove(0);
-					deck.remove(0);	
+						deck.remove(0);
+						deck.remove(0);	
 					}
 					
 					
 					public static void addOneCard()
 					{
-					print(" Would you like to draw another card? ");
-					Scanner userInput = new Scanner(System.in);
-					print("\n 1. Yes ");
-					print("\n 2. No ");
-			
-					int yesOrNo = userInput.nextInt();
+						print(" Would you like to draw another card? ");
+						Scanner userInput = new Scanner(System.in);
+						print("\n 1. Yes ");
+						print("\n 2. No ");
+						int yesOrNo = userInput.nextInt();
 					
-					if (yesOrNo == 1)
+						if (yesOrNo == 1)
 						{
 							print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
 							playerHandValue = playerHandValue + deck.get(0).getValue();
 							print(" \n Your new total is " + playerHandValue + ". ");
 							deck.remove(0);
-								
+									
 									youWonOrLost();
 									addOneCard();
-								
 						}
 							
-					else if (yesOrNo == 2)
+						else if (yesOrNo == 2)
 						{
 							print("Ok! Goodbye!");
 							System.exit(0);
@@ -115,12 +114,9 @@ public class BlackjackRunner
 										e.printStackTrace();
 									}
 							}
-					
-					
-						}
+					}
 					public static void deck()
 						{
-							
 								{
 									deck.add(new Card("ace", "hearts", 11));
 									deck.add(new Card("ace", "clubs", 11));
