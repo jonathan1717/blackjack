@@ -12,7 +12,7 @@ public class BlackjackRunner
 			{
 						deck();
 					{
-						intro();
+//						intro();
 						dealTwoCards();
 						addOneCard();
 						youWonOrLost();
@@ -36,6 +36,7 @@ public class BlackjackRunner
 						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
 						print(" \nYour first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
 							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ".");
+						youWonOrLost();
 						deck.remove(0);
 						deck.remove(0);	
 					}
