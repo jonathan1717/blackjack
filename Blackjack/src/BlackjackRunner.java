@@ -48,7 +48,7 @@ public class BlackjackRunner
 						print("\n 1. Yes ");
 						print("\n 2. No ");
 						int yesOrNo = userInput.nextInt();
-					
+				
 						if (yesOrNo == 1)
 						{
 							print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
@@ -62,7 +62,8 @@ public class BlackjackRunner
 							
 						else if (yesOrNo == 2)
 						{
-							print("Ok! Goodbye!");
+							print("I'm sorry to tell  you but you came up just short of 21. \nThat means that you loose.  Would you like to play again?");
+							playAgain();
 							System.exit(0);
 						}
 					}
@@ -97,7 +98,7 @@ public class BlackjackRunner
 							}
 						else if (yesOrNo == 2)
 						{
-							System.out.println("Alright thanks for playing! See you nest time!");
+							System.out.println("Alright thanks for playing! See you next time!");
 							System.exit(0);
 						}
 					}
