@@ -12,7 +12,7 @@ public class BlackjackRunner
 			{
 						deck();
 					{
-//						intro();
+						intro();
 						dealTwoCards();
 						addOneCard();
 						youWonOrLost();
