@@ -10,7 +10,7 @@ public class BlackjackRunner
 		static int playerHandValue;
 		public static void main(String[] args)
 			{
-				deck();
+						deck();
 					{
 						intro();
 						dealTwoCards();
@@ -26,16 +26,16 @@ public class BlackjackRunner
 							print("What is your name?");
 							String name = userInput.nextLine();
 							print("Hello " + name + " and welcome to Blackjack! "
-								+ "\n The object of the game is to get a total of 21 for your card value.  "
-								+ "\n If you go over 21 you loose! "
-								+ "\n You will start out with two cards.");
+								+ "\nThe object of the game is to get a total of 21 for your card value.  "
+								+ "\nIf you go over 21 you loose! "
+								+ "\nYou will start out with two cards.");
 					}
 					
 					public static void dealTwoCards()
 					{
 						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
-						print(" \n Your first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
-							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\n for a total of " +  playerHandValue + ".");
+						print(" \nYour first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
+							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ".");
 						deck.remove(0);
 						deck.remove(0);	
 					}
@@ -53,7 +53,7 @@ public class BlackjackRunner
 						{
 							print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
 							playerHandValue = playerHandValue + deck.get(0).getValue();
-							print(" \n Your new total is " + playerHandValue + ". ");
+							print(" \nYour new total is " + playerHandValue + ". ");
 							deck.remove(0);
 									
 									youWonOrLost();
@@ -76,13 +76,13 @@ public class BlackjackRunner
 							}
 						else if (playerHandValue > 21)
 							{
-								print(" \n Im sorry to inform you, but you went over 21 so you lose.");
+								print(" \nIm sorry to inform you, but you went over 21 so you lose.");
 								playAgain();
 							}
 						}
 					public static void playAgain()
 					{
-						System.out.println(" \n Would you like to play again?");
+						System.out.println(" \nWould you like to play again?");
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes");
 						print("\n 2. No");
