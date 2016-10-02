@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /*
   
- * make the option for the user to choose the value of the ace to be one or eleven
+ * make the option for the user to choose the value of the ace to be one or eleven	
  	Do I create a new method to give that option?
  * make a new player
     give the user in the intro() the option to select how many players there will be
