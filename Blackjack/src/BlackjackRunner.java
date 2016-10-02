@@ -22,6 +22,7 @@ public class BlackjackRunner
 		
 					public static void intro()
 					{
+							@SuppressWarnings("resource")
 							Scanner userInput = new Scanner(System.in);
 							print("What is your name?");
 							String name = userInput.nextLine();
@@ -40,11 +41,11 @@ public class BlackjackRunner
 						deck.remove(0);
 						deck.remove(0);	
 					}
-					
-					
+
 					public static void addOneCard()
 					{
 						print(" Would you like to draw another card? ");
+						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes ");
 						print("\n 2. No ");
@@ -85,6 +86,7 @@ public class BlackjackRunner
 					public static void playAgain()
 					{
 						System.out.println(" \nWould you like to play again?");
+						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes");
 						print("\n 2. No");
