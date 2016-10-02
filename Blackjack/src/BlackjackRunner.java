@@ -20,18 +20,16 @@ public class BlackjackRunner
 		static ArrayList<Card> deck =new ArrayList <Card>();
 		static int playerHandValue;
 		public static void main(String[] args)
+		
 			{
-						deck();
-						
-					{
 						intro();
 						dealTwoCards();
 						addOneCard();
 						youWonOrLost();
 						playAgain();
-					}
+						deck();
 			}
-		
+	
 					public static void intro()
 					{
 							@SuppressWarnings("resource")
@@ -43,7 +41,7 @@ public class BlackjackRunner
 								+ "\nIf you go over 21 you loose! "
 								+ "\nYou will start out with two cards.");
 					}
-					
+
 					public static void dealTwoCards()
 					{
 						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
@@ -96,6 +94,7 @@ public class BlackjackRunner
 									playAgain();
 								}
 						}
+					
 					public static void playAgain()
 					{
 						print(" \nWould you like to play again?");
@@ -132,8 +131,6 @@ public class BlackjackRunner
 									}
 							}
 					}
-					
-					
 					public static void deck()
 						{
 								{
