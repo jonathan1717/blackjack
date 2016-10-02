@@ -1,8 +1,19 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+//these are my changes that I need to make below
 
-
+/*
+  
+ * make the option for the user to choose the value of the ace to be one or eleven
+ 	Do I create a new method to give that option?
+ * make a new player
+    give the user in the intro() the option to select how many players there will be
+ 	new player can be a robot or an actual player 2	
+ *add gambling
+ 	two person gambling
+ 		
+*/
 public class BlackjackRunner
 	{
 		static int firstTotalCards;
@@ -11,6 +22,7 @@ public class BlackjackRunner
 		public static void main(String[] args)
 			{
 						deck();
+						
 					{
 						intro();
 						dealTwoCards();
@@ -37,6 +49,7 @@ public class BlackjackRunner
 						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
 						print(" \nYour first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
 							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ".");
+						
 						youWonOrLost();
 						deck.remove(0);
 						deck.remove(0);	
@@ -85,7 +98,7 @@ public class BlackjackRunner
 						}
 					public static void playAgain()
 					{
-						System.out.println(" \nWould you like to play again?");
+						print(" \nWould you like to play again?");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes");
@@ -101,7 +114,7 @@ public class BlackjackRunner
 							}
 						else if (yesOrNo == 2)
 						{
-							System.out.println("Alright thanks for playing! See you next time!");
+							print("Alright thanks for playing! See you next time!");
 							System.exit(0);
 						}
 					}
@@ -119,6 +132,8 @@ public class BlackjackRunner
 									}
 							}
 					}
+					
+					
 					public static void deck()
 						{
 								{

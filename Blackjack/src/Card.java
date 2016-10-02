@@ -1,5 +1,6 @@
 public class Card
 {
+	
 	String suit;
 	String rank;
 	int value;
