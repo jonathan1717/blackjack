@@ -94,14 +94,13 @@ public class BlackjackRunner
 							
 							else if (yesOrNo == 2)
 								{
-									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand);
+									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + "  . ");
 									compareCards();
 								}
 					}
 					
 					public static void compareCards()
 						{
-							print("The dealer has a total of " + dealerHand + ". ");
 							print("Your total is " + playerHandValue + ".");
 							
 							if (dealerHand < playerHandValue)
