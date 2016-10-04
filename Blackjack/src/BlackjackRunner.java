@@ -4,12 +4,10 @@ import java.util.Scanner;
 //these are my changes that I need to make below
 
 /*
-  
+  ADD DEALER
  * make the option for the user to choose the value of the ace to be one or eleven	
  	Do I create a new method to give that option?
- * make a new player
-    give the user in the intro() the option to select how many players there will be
- 	new player can be a robot or an actual player 2	
+ 
  *add gambling
  	two person gambling
  		
@@ -19,17 +17,19 @@ public class BlackjackRunner
 		static int firstTotalCards;
 		static ArrayList<Card> deck =new ArrayList <Card>();
 		static int playerHandValue;
-		public static void main(String[] args)
-		
+		static int dealerHand;
+		static String dealerSecondCard;
+		public static void main(String[] args) 
 			{
+						deck();		
 						intro();
 						dealTwoCards();
 						addOneCard();
 						youWonOrLost();
 						playAgain();
-						deck();
+						dealerWonOrLost();
+//						compareCards();
 			}
-	
 					public static void intro()
 					{
 							@SuppressWarnings("resource")
@@ -37,31 +37,49 @@ public class BlackjackRunner
 							print("What is your name?");
 							String name = userInput.nextLine();
 							print("Hello " + name + " and welcome to Blackjack! "
-								+ "\nThe object of the game is to get a total of 21 for your card value.  "
+								+ "\nThe object of the game is to get as close to or at 21 for your card value.  "
 								+ "\nIf you go over 21 you loose! "
-								+ "\nYou will start out with two cards.");
+								+ "\nYou and the dealer will start out with two cards.");
 					}
 
-					public static void dealTwoCards()
+					public static void dealTwoCards() 
 					{
 						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
 						print(" \nYour first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
-							+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ".");
-						
-						youWonOrLost();
+						+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ". ");
 						deck.remove(0);
 						deck.remove(0);	
+						
+						dealerHand = deck.get(0).getValue() + deck.get(1).getValue();
+						dealerSecondCard = deck.get(1).getRank() + " of " + deck.get(1).getSuit();
+						print( "The dealer is showing a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit());
+//						youWonOrLost();
+						deck.remove(0);
+						deck.remove(0);
+						
+//						dealerWonOrLost();
+//						youWonOrLost();
 					}
 
 					public static void addOneCard()
 					{
+//						if (dealerHand <16)
+//							{
+//								print("\nThe dealer chose to draw another card.  He drew a " + deck.get(0).getValue() + " of " + deck.get(0).getSuit());
+//							}
+//						else if (dealerHand > 16)
+//							{
+//							 print("\nThe dealer chose not to draw another card. ");
+//							}
+						
+						
 						print(" Would you like to draw another card? ");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes ");
 						print("\n 2. No ");
 						int yesOrNo = userInput.nextInt();
-				
+						
 							if (yesOrNo == 1)
 								{
 									print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
@@ -70,22 +88,40 @@ public class BlackjackRunner
 									deck.remove(0);
 									
 									youWonOrLost();
+									dealerWonOrLost();
 									addOneCard();
 								}
 							
 							else if (yesOrNo == 2)
 								{
-									print("I'm sorry to tell  you but you came up just short of 21. \nThat means that you loose.  Would you like to play again?");
-									playAgain();
-									System.exit(0);
+									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand);
+									compareCards();
 								}
 					}
 					
+					public static void compareCards()
+						{
+							print("The dealer has a total of " + dealerHand + ". ");
+							print("Your total is " + playerHandValue + ".");
+							
+							if (dealerHand < playerHandValue)
+								{
+									print(" \nCongratulations! You Won! ");
+								}
+							else if (dealerHand > playerHandValue)
+								{
+									print(" \nSorry but the dealer was closer to 21. You loose!");
+								}
+							else if (dealerHand == playerHandValue)
+								{
+									print(" \n...You tied. That's lame");
+								}
+						}
 					public static void youWonOrLost()
 						{
 							if (playerHandValue == 21)
 								{
-									print(" Congratulations! You Win");
+									print(" Congratulations! You beat the dealer!");
 									playAgain();
 								}
 							else if (playerHandValue > 21)
@@ -94,7 +130,19 @@ public class BlackjackRunner
 									playAgain();
 								}
 						}
-					
+					public static void dealerWonOrLost()
+						{
+							if (dealerHand == 21)
+								{
+									print(" I'm sorry to tell you but the dealer won");
+									playAgain();
+								}
+							else if (dealerHand > 21)
+								{
+									print("\n The dealer went over 21. Congratulations you won! ");
+									playAgain();
+								}
+						}
 					public static void playAgain()
 					{
 						print(" \nWould you like to play again?");
@@ -124,7 +172,7 @@ public class BlackjackRunner
 								System.out.print(s.substring(i, i+1));
 								try
 									{
-										Thread.sleep(50);
+										Thread.sleep(5);
 									} catch (InterruptedException e)
 									{
 										e.printStackTrace();
@@ -189,7 +237,5 @@ public class BlackjackRunner
 									Collections.shuffle(deck);
 								}
 								
-						}	
-						
-}
-						
+						}						
+	}					
