@@ -1,17 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-//these are my changes that I need to make below
 
-/*
-  ADD DEALER
- * make the option for the user to choose the value of the ace to be one or eleven	
- 	Do I create a new method to give that option?
- 
- *add gambling
- 	two person gambling
- 		
-*/
 public class BlackjackRunner
 	{
 		static int firstTotalCards;
@@ -25,10 +15,9 @@ public class BlackjackRunner
 						intro();
 						dealTwoCards();
 						addOneCard();
-						youWonOrLost();
-						playAgain();
-						dealerWonOrLost();
-//						compareCards();
+						compareCards();
+						compareCards2();
+						playAgain();					
 			}
 					public static void intro()
 					{
@@ -87,60 +76,55 @@ public class BlackjackRunner
 									print(" \nYour new total is " + playerHandValue + ". ");
 									deck.remove(0);
 									
-									youWonOrLost();
-									dealerWonOrLost();
 									addOneCard();
 								}
 							
 							else if (yesOrNo == 2)
 								{
-									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + "  . ");
+									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + ". ");
 									compareCards();
 								}
 					}
-					
+					 
 					public static void compareCards()
+					
 						{
-							print("Your total is " + playerHandValue + ".");
 							
-							if (dealerHand < playerHandValue)
+							if (dealerHand == playerHandValue)
 								{
-									print(" \nCongratulations! You Won! ");
-								}
-							else if (dealerHand > playerHandValue)
-								{
-									print(" \nSorry but the dealer was closer to 21. You loose!");
-								}
-							else if (dealerHand == playerHandValue)
-								{
-									print(" \n...You tied. That's lame");
-								}
-						}
-					public static void youWonOrLost()
-						{
-							if (playerHandValue == 21)
-								{
-									print(" Congratulations! You beat the dealer!");
-									playAgain();
+									print(" \nIm sorry but ties do go to the dealer.  So you loose!");
 								}
 							else if (playerHandValue > 21)
 								{
-									print(" \nIm sorry to inform you, but you went over 21 so you lose.");
-									playAgain();
-								}
-						}
-					public static void dealerWonOrLost()
-						{
-							if (dealerHand == 21)
-								{
-									print(" I'm sorry to tell you but the dealer won");
-									playAgain();
+								print("\n I'm sorry but you went over 21 so you loose.");
 								}
 							else if (dealerHand > 21)
 								{
-									print("\n The dealer went over 21. Congratulations you won! ");
-									playAgain();
+									print("\n The dealer went over 21 so you win!");
 								}
+							else if (dealerHand == 21)
+								{
+									print("\n I'm sorry but the dealer has exactly 21 so you lose.");
+								}
+							else if (playerHandValue == 21)
+								{
+								print("\n  You have exactly 21 so you win!");
+								}
+							
+							playAgain();
+						}
+					public static void compareCards2()
+						{
+						print("Your total is " + playerHandValue + ".");
+						
+						if (dealerHand < playerHandValue)
+							{
+								print(" \nCongratulations! You Won! ");
+							}
+						else if (dealerHand > playerHandValue)
+							{
+								print(" \nSorry but the dealer was closer to 21. You loose!");
+							}
 						}
 					public static void playAgain()
 					{
@@ -156,7 +140,7 @@ public class BlackjackRunner
 							{
 								dealTwoCards();
 								addOneCard();
-								youWonOrLost();
+								
 							}
 						else if (yesOrNo == 2)
 						{
