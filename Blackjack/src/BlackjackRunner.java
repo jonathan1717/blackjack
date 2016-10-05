@@ -42,25 +42,15 @@ public class BlackjackRunner
 						dealerHand = deck.get(0).getValue() + deck.get(1).getValue();
 						dealerSecondCard = deck.get(1).getRank() + " of " + deck.get(1).getSuit();
 						print( "The dealer is showing a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit());
-//						youWonOrLost();
+
 						deck.remove(0);
 						deck.remove(0);
 						
-//						dealerWonOrLost();
-//						youWonOrLost();
+
 					}
 
 					public static void addOneCard()
 					{
-//						if (dealerHand <16)
-//							{
-//								print("\nThe dealer chose to draw another card.  He drew a " + deck.get(0).getValue() + " of " + deck.get(0).getSuit());
-//							}
-//						else if (dealerHand > 16)
-//							{
-//							 print("\nThe dealer chose not to draw another card. ");
-//							}
-						
 						
 						print(" Would you like to draw another card? ");
 						@SuppressWarnings("resource")
