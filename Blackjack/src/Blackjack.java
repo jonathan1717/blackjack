@@ -6,20 +6,10 @@ public class Blackjack
 	{
 		static int firstTotalCards;
 		static ArrayList<Card> deck =new ArrayList <Card>();
-		static int playerHandValue;
+		static int playerHand;
 		static int dealerHand;
 		static String dealerSecondCard;
-		public static void main(String[] args) 
-			{
-						deck();	
-						intro();
-						checkForAllCards();
-						dealTwoCards();
-						addOneCard();
-						compareCards();
-						compareCards2();
-						playAgain();					
-			}
+		
 					public static void intro()
 					{
 							@SuppressWarnings("resource")
@@ -34,9 +24,9 @@ public class Blackjack
 
 					public static void dealTwoCards() 
 					{
-						playerHandValue = deck.get(0).getValue() + deck.get(1).getValue();
+						playerHand = deck.get(0).getValue() + deck.get(1).getValue();
 						print(" \nYour first two cards are a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit()
-						+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHandValue + ". ");
+						+ " and a " + deck.get(1).getRank() + " of " + deck.get(1).getSuit() + "\nfor a total of " +  playerHand + ". ");
 						deck.remove(0);
 						deck.remove(0);	
 						
@@ -63,8 +53,8 @@ public class Blackjack
 							if (yesOrNo == 1)
 								{
 									print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
-									playerHandValue = playerHandValue + deck.get(0).getValue();
-									print(" \nYour new total is " + playerHandValue + ". ");
+									playerHand = playerHand + deck.get(0).getValue();
+									print(" \nYour new total is " + playerHand + ". ");
 									deck.remove(0);
 									
 									addOneCard();
@@ -81,11 +71,11 @@ public class Blackjack
 					
 						{
 							
-							if (dealerHand == playerHandValue)
+							if (dealerHand == playerHand)
 								{
 									print(" \nIm sorry but ties do go to the dealer.  So you loose!");
 								}
-							else if (playerHandValue > 21)
+							else if (playerHand > 21)
 								{
 								print("\n I'm sorry but you went over 21 so you loose.");
 								}
@@ -97,7 +87,7 @@ public class Blackjack
 								{
 									print("\n I'm sorry but the dealer has exactly 21 so you lose.");
 								}
-							else if (playerHandValue == 21)
+							else if (playerHand == 21)
 								{
 								print("\n  You have exactly 21 so you win!");
 								}
@@ -106,13 +96,13 @@ public class Blackjack
 						}
 					public static void compareCards2()
 						{
-						print("Your total is " + playerHandValue + ".");
+						print("Your total is " + playerHand + ".");
 						
-						if (dealerHand < playerHandValue)
+						if (dealerHand < playerHand)
 							{
 								print(" \nCongratulations! You Won! ");
 							}
-						else if (dealerHand > playerHandValue)
+						else if (dealerHand > playerHand)
 							{
 								print(" \nSorry but the dealer was closer to 21. You loose!");
 							}
