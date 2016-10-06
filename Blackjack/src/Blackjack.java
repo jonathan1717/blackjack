@@ -48,7 +48,7 @@ public class Blackjack
 						Scanner userInput = new Scanner(System.in);
 					    String hitOrStay = userInput.nextLine();
 						
-							if (hitOrStay == "hit")
+							if (hitOrStay.equals("hit"))
 								{
 									print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
 									playerHand = playerHand + deck.get(0).getValue();
@@ -58,7 +58,7 @@ public class Blackjack
 									addOneCard();
 								}
 							
-							else if (hitOrStay == "stay")
+							else if (hitOrStay.equals("stay"))
 								{
 									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + ". ");
 									compareCards();
@@ -110,15 +110,15 @@ public class Blackjack
 						print(" \nWould you like to play again?");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
-						String yesOrNo = userInput.nextLine();
+						String yesOrNo2 = userInput.nextLine();
 						
-						if (yesOrNo == "yes")
+						if (yesOrNo2 == "yes")
 							{
 								dealTwoCards();
 								addOneCard();
 								
 							}
-						else if (yesOrNo == "no")
+						else if (yesOrNo2 == "no")
 						{
 							print("Alright thanks for playing! See you next time!");
 							System.exit(0);
