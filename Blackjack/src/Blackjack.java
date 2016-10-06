@@ -37,20 +37,18 @@ public class Blackjack
 						deck.remove(0);
 						deck.remove(0);
 						
-
+ 
 					}
 
 					public static void addOneCard()
 					{
 						
-						print(" Would you like to draw another card? ");
+						print(" Would you like to hit or stay? ");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
-						print("\n 1. Yes ");
-						print("\n 2. No ");
-						int yesOrNo = userInput.nextInt();
+					    String hitOrStay = userInput.nextLine();
 						
-							if (yesOrNo == 1)
+							if (hitOrStay == "hit")
 								{
 									print("The card that you drew is a " + deck.get(0).getRank() + " of " + deck.get(0).getSuit() + ". ");
 									playerHand = playerHand + deck.get(0).getValue();
@@ -60,7 +58,7 @@ public class Blackjack
 									addOneCard();
 								}
 							
-							else if (yesOrNo == 2)
+							else if (hitOrStay == "stay")
 								{
 									print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + ". ");
 									compareCards();
@@ -112,18 +110,15 @@ public class Blackjack
 						print(" \nWould you like to play again?");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
-						print("\n 1. Yes");
-						print("\n 2. No");
-				
-						int yesOrNo = userInput.nextInt();
+						String yesOrNo = userInput.nextLine();
 						
-						if (yesOrNo == 1)
+						if (yesOrNo == "yes")
 							{
 								dealTwoCards();
 								addOneCard();
 								
 							}
-						else if (yesOrNo == 2)
+						else if (yesOrNo == "no")
 						{
 							print("Alright thanks for playing! See you next time!");
 							System.exit(0);
@@ -147,6 +142,7 @@ public class Blackjack
 					public static void checkForAllCards()
 					{
 						print("\nWould you like to see all of the cards to make sure that they are shuffled?");
+						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						print("\n 1. Yes");
 						print("\n 2. No");
