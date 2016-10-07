@@ -83,7 +83,10 @@ public class Blackjack
 									print("\n The dealer went over 21 so you win!");
 								}
 							
-							
+							if (dealerHand < playerHand)
+								{
+										print(" \nCongratulations! You Won! ");
+								}
 							if (dealerHand > playerHand)
 								{
 										print(" \nSorry but the dealer was closer to 21. You loose!");
