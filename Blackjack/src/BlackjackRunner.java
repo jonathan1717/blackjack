@@ -9,7 +9,7 @@ public class BlackjackRunner
 			Blackjack.dealTwoCards();
 			Blackjack.addOneCard();
 			Blackjack.compareCards();
-			Blackjack.compareCards2();
-			Blackjack.playAgain();					
+			
+						
 		}
 	}

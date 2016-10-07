@@ -64,47 +64,35 @@ public class Blackjack
 									compareCards();
 								}
 					}
-					 
+  					 
 					public static void compareCards()
 					
 						{
-							
+						
 							if (dealerHand == playerHand)
 								{
-									print(" \nIm sorry but ties do go to the dealer.  So you loose!");
+								print(" \nIm sorry but ties do go to the dealer.  So you loose!");
+								playAgain();
 								}
-							else if (playerHand > 21)
+							 if (playerHand > 21)
 								{
-								print("\n I'm sorry but you went over 21 so you loose.");
+									print("\n You went over 21 so you lost!");
 								}
-							else if (dealerHand > 21)
+							 if (dealerHand > 21)
 								{
 									print("\n The dealer went over 21 so you win!");
 								}
-							else if (dealerHand == 21)
+							
+							
+							if (dealerHand > playerHand)
 								{
-									print("\n I'm sorry but the dealer has exactly 21 so you lose.");
-								}
-							else if (playerHand == 21)
-								{
-								print("\n  You have exactly 21 so you win!");
+										print(" \nSorry but the dealer was closer to 21. You loose!");
 								}
 							
-							playAgain();
+							
 						}
-					public static void compareCards2()
-						{
-						print("Your total is " + playerHand + ".");
+					
 						
-						if (dealerHand < playerHand)
-							{
-								print(" \nCongratulations! You Won! ");
-							}
-						else if (dealerHand > playerHand)
-							{
-								print(" \nSorry but the dealer was closer to 21. You loose!");
-							}
-						}
 					public static void playAgain()
 					{
 						print(" \nWould you like to play again?");
@@ -144,10 +132,8 @@ public class Blackjack
 						print("\nWould you like to see all of the cards to make sure that they are shuffled?");
 						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
-						print("\n 1. Yes");
-						print("\n 2. No");
-						int yesOrNo = userInput.nextInt();
-						if (yesOrNo == 1)
+						String yesOrNo = userInput.nextLine();
+						if (yesOrNo.equals("yes"))
 						{
 						for (Card c : deck)
 							{
