@@ -54,8 +54,11 @@ public class Blackjack
 									playerHand = playerHand + deck.get(0).getValue();
 									print(" \nYour new total is " + playerHand + ". ");
 									deck.remove(0);
-									
-									addOneCard();
+									 if (playerHand > 21)
+										{
+											print("\nYou went over 21 so you lost!");
+											playAgain();
+										}
 								}
 							
 							else if (hitOrStay.equals("stay"))
@@ -72,18 +75,14 @@ public class Blackjack
 							if (dealerHand == playerHand)
 								{
 								print(" \nIm sorry but ties do go to the dealer.  So you loose!");
-								playAgain();
 								}
-							 if (playerHand > 21)
-								{
-									print("\n You went over 21 so you lost!");
-								}
+							
 							 if (dealerHand > 21)
 								{
 									print("\n The dealer went over 21 so you win!");
 								}
 							
-							if (dealerHand < playerHand)
+							 if (dealerHand < playerHand)
 								{
 										print(" \nCongratulations! You Won! ");
 								}
@@ -91,15 +90,12 @@ public class Blackjack
 								{
 										print(" \nSorry but the dealer was closer to 21. You loose!");
 								}
-							
-							
 						}
 					
 						
 					public static void playAgain()
 					{
 						print(" \nWould you like to play again?");
-						@SuppressWarnings("resource")
 						Scanner userInput = new Scanner(System.in);
 						String yesOrNo2 = userInput.nextLine();
 						
@@ -107,7 +103,6 @@ public class Blackjack
 							{
 								dealTwoCards();
 								addOneCard();
-								
 							}
 						else if (yesOrNo2 == "no")
 						{
