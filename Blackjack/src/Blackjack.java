@@ -103,7 +103,7 @@ public class Blackjack
 								System.out.print(s.substring(i, i+1));
 								try
 									{
-										Thread.sleep(5);
+										Thread.sleep(50);
 									}
 										catch (InterruptedException e)
 									{
