@@ -22,32 +22,30 @@ public class Blackjack
 								+ "\nIf you go over 21 you loose! "
 								+ "\nYou and the dealer will start out with two cards.");
 					}
-
+					
 					public static void dealTwoCards()   
-					{
-						playerHand = Deck.deck.get(0).getValue() + Deck.deck.get(1).getValue();
-						print(" \nYour first two cards are a " + Deck.deck.get(0).getRank() + " of " + Deck.deck.get(0).getSuit()
-						+ " and a " + Deck.deck.get(1).getRank() + " of " + Deck.deck.get(1).getSuit() + "\nfor a total of " +  playerHand + ". ");
-						Deck.deck.remove(0);
-						Deck.deck.remove(0);	
-						
-						dealerHand = Deck.deck.get(0).getValue() + Deck.deck.get(1).getValue();
-						dealerSecondCard = Deck.deck.get(1).getRank() + " of " + Deck.deck.get(1).getSuit();
-						print( "The dealer is showing a " + Deck.deck.get(0).getRank() + " of " + Deck.deck.get(0).getSuit());
-
-						Deck.deck.remove(0);
-						Deck.deck.remove(0);
-						
- 
-					}
+						{
+							playerHand = Deck.deck.get(0).getValue() + Deck.deck.get(1).getValue();
+							print(" \nYour first two cards are a " + Deck.deck.get(0).getRank() + " of " + Deck.deck.get(0).getSuit()
+							+ " and a " + Deck.deck.get(1).getRank() + " of " + Deck.deck.get(1).getSuit() + "\nfor a total of " +  playerHand + ". ");
+							Deck.deck.remove(0);
+							Deck.deck.remove(0);	
+							
+							dealerHand = Deck.deck.get(0).getValue() + Deck.deck.get(1).getValue();
+							dealerSecondCard = Deck.deck.get(1).getRank() + " of " + Deck.deck.get(1).getSuit();
+							print( "The dealer is showing a " + Deck.deck.get(0).getRank() + " of " + Deck.deck.get(0).getSuit());
+	
+							Deck.deck.remove(0);
+							Deck.deck.remove(0);
+						}
   
 					public static void addOneCard()
-					{
+						{
 						
-						print(" Would you like to hit or stay? ");
-						@SuppressWarnings("resource")
-						Scanner userInput = new Scanner(System.in);
-					    String hitOrStay = userInput.nextLine();
+							print(" Would you like to hit or stay? ");
+							@SuppressWarnings("resource")
+							Scanner userInput = new Scanner(System.in);
+							String hitOrStay = userInput.nextLine();
 						
 							if (hitOrStay.equals("hit"))
 								{
@@ -74,7 +72,7 @@ public class Blackjack
 								print("The dealer's second card is a " + dealerSecondCard + " for a total of " + dealerHand + ". ");
 								compareCards();
 								}
-					}
+						}
   					 
 					public static void compareCards()  
 					
